@@ -13,6 +13,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
      Connection connection = Util.getConnection();
 
+    @Override
     public void createUsersTable() {
         String sql = "CREATE TABLE users (id INT PRIMARY KEY AUTO_INCREMENT," +
                 " name VARCHAR(45), lastName VARCHAR(45), age INT)";
@@ -25,6 +26,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     }
 
+    @Override
     public void dropUsersTable() {
         String sql = "DROP TABLE users";
         try (Statement statement = connection.createStatement()) {
@@ -34,6 +36,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+    @Override
     public void saveUser(String name, String lastName, byte age) {
         String sql = "INSERT INTO users (name, lastName, age)" +
                      "VALUES (?, ?, ?);";
@@ -52,6 +55,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+    @Override
     public void removeUserById(long id) {
         String sql = "DELETE FROM users WHERE id = ?";
         PreparedStatement preparedStatement = null;
@@ -66,6 +70,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     }
 
+    @Override
     public List<User> getAllUsers() {
         List<User> listUser = new ArrayList<>();
         String sql = "SELECT * FROM users;";
@@ -85,6 +90,7 @@ public class UserDaoJDBCImpl implements UserDao {
         return listUser;
     }
 
+    @Override
     public void cleanUsersTable() {
         String sql = "DELETE  FROM users;";
         try (Statement statement = connection.createStatement()) {
