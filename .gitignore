@@ -2,3 +2,4 @@
 /.idea
 TaskJDBC.iml
 /target
+.gitignore
