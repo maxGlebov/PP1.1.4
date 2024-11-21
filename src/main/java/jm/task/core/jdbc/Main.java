@@ -1,15 +1,18 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.dao.UserDao;
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 
 public class  Main {
     public static void main(String[] args) {
-        User user1 = new User("Oleg", Ol)
+        UserService userService = new UserServiceImpl();
+        userService.saveUser("Oleg", "Olegov", (byte)33);
 
 
-
+//    for jdbc version
 //        int PEOPLE_COUNT = 0;
 //        UserService userService = new UserServiceImpl();
 //        userService.createUsersTable();
